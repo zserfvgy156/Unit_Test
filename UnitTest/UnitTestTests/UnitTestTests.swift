@@ -10,6 +10,7 @@ import XCTest
 
 class UnitTestTests: XCTestCase {
 
+    private var viewModel: LoginVerificationViewModel! = .init()
     
     
     override func setUpWithError() throws {
@@ -26,13 +27,22 @@ class UnitTestTests: XCTestCase {
         // Any test you write for XCTest can be annotated as throws and async.
         // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+        
+        
+        XCTAssertTrue(viewModel.isLoginDisabled)
+        viewModel.email = "zserfvgy115566@gmail.com"
+        viewModel.password = ""
+        XCTAssertTrue(viewModel.isLoginDisabled)
+        viewModel.email = "zserfvgy115566@gmail.com"
+        viewModel.password = "1223213123123"
+        XCTAssertFalse(viewModel.isLoginDisabled)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+//    func testPerformanceExample() throws {
+//        // This is an example of a performance test case.
+//        self.measure {
+//            // Put the code you want to measure the time of here.
+//        }
+//    }
 
 }

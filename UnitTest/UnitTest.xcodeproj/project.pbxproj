@@ -15,6 +15,9 @@
 		CE12E75C28CEC9B500BAED4F /* UnitTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12E75B28CEC9B500BAED4F /* UnitTestUITests.swift */; };
 		CE12E75E28CEC9B500BAED4F /* UnitTestUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12E75D28CEC9B500BAED4F /* UnitTestUITestsLaunchTests.swift */; };
 		CE12E76B28CEE26E00BAED4F /* LoginVerificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12E76A28CEE26E00BAED4F /* LoginVerificationViewModel.swift */; };
+		CE12E77028D2B87F00BAED4F /* String+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12E76F28D2B87F00BAED4F /* String+Common.swift */; };
+		CE12E77328D2BB1700BAED4F /* AlertInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12E77228D2BB1700BAED4F /* AlertInfo.swift */; };
+		CE12E77628D2D4DA00BAED4F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12E77528D2D4DA00BAED4F /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		CE12E75B28CEC9B500BAED4F /* UnitTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestUITests.swift; sourceTree = "<group>"; };
 		CE12E75D28CEC9B500BAED4F /* UnitTestUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitTestUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CE12E76A28CEE26E00BAED4F /* LoginVerificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVerificationViewModel.swift; sourceTree = "<group>"; };
+		CE12E76F28D2B87F00BAED4F /* String+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Common.swift"; sourceTree = "<group>"; };
+		CE12E77228D2BB1700BAED4F /* AlertInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertInfo.swift; sourceTree = "<group>"; };
+		CE12E77528D2D4DA00BAED4F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,9 +104,12 @@
 			children = (
 				CE12E74028CEC9B300BAED4F /* UnitTestApp.swift */,
 				CE12E74228CEC9B300BAED4F /* ContentView.swift */,
-				CE12E74428CEC9B500BAED4F /* Assets.xcassets */,
-				CE12E74628CEC9B500BAED4F /* Preview Content */,
 				CE12E76A28CEE26E00BAED4F /* LoginVerificationViewModel.swift */,
+				CE12E74428CEC9B500BAED4F /* Assets.xcassets */,
+				CE12E77428D2D4BB00BAED4F /* Login */,
+				CE12E77128D2BA7C00BAED4F /* Common */,
+				CE12E76E28D2B85A00BAED4F /* Extension */,
+				CE12E74628CEC9B500BAED4F /* Preview Content */,
 			);
 			path = UnitTest;
 			sourceTree = "<group>";
@@ -128,6 +137,30 @@
 				CE12E75D28CEC9B500BAED4F /* UnitTestUITestsLaunchTests.swift */,
 			);
 			path = UnitTestUITests;
+			sourceTree = "<group>";
+		};
+		CE12E76E28D2B85A00BAED4F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CE12E76F28D2B87F00BAED4F /* String+Common.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		CE12E77128D2BA7C00BAED4F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CE12E77228D2BB1700BAED4F /* AlertInfo.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CE12E77428D2D4BB00BAED4F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CE12E77528D2D4DA00BAED4F /* LoginView.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,7 +293,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE12E77628D2D4DA00BAED4F /* LoginView.swift in Sources */,
 				CE12E74328CEC9B300BAED4F /* ContentView.swift in Sources */,
+				CE12E77328D2BB1700BAED4F /* AlertInfo.swift in Sources */,
+				CE12E77028D2B87F00BAED4F /* String+Common.swift in Sources */,
 				CE12E74128CEC9B300BAED4F /* UnitTestApp.swift in Sources */,
 				CE12E76B28CEE26E00BAED4F /* LoginVerificationViewModel.swift in Sources */,
 			);

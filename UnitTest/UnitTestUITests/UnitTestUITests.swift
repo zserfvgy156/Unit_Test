@@ -43,7 +43,7 @@ class UnitTestUITests: XCTestCase {
         app.buttons["login"].doubleTap()
 //        app.buttons["login"].twoFingerTap()
         
-
+    
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
 
