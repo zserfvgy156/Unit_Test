@@ -10,7 +10,7 @@ import Foundation
 
 /// 提示訊息的狹帶資料
 struct AlertInfo: Identifiable {
-    var id: String { title }
+    var id: String { UUID().uuidString }
     let title: String
     let message: String
 }

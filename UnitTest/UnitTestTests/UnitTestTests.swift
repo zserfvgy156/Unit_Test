@@ -15,6 +15,9 @@ class UnitTestTests: XCTestCase {
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        // In UI tests it is usually best to stop immediately when a failure occurs.
+        continueAfterFailure = false
     }
 
     override func tearDownWithError() throws {
@@ -30,10 +33,14 @@ class UnitTestTests: XCTestCase {
         
         
         XCTAssertTrue(viewModel.isLoginDisabled)
-        viewModel.email = "zserfvgy115566@gmail.com"
+        
+        /// 測試密碼格式錯誤
+        viewModel.email = "zserfvgy@gmail.com"
         viewModel.password = ""
         XCTAssertTrue(viewModel.isLoginDisabled)
-        viewModel.email = "zserfvgy115566@gmail.com"
+        
+        /// 測試格式正確
+        viewModel.email = "zserfvgy@gmail.com"
         viewModel.password = "1223213123123"
         XCTAssertFalse(viewModel.isLoginDisabled)
     }
