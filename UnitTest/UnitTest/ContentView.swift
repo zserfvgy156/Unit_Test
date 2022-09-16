@@ -9,13 +9,14 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject var viewModel = LoginVerificationViewModel()
+    @StateObject var viewModel = LoginVerificationViewModel(isAuthorized: false)
     
     
     var body: some View {
         
         if viewModel.isAuthorized {
             Text("Hello World!")
+                .padding()
         }
         else {
             LoginView(viewModel: viewModel)

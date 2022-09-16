@@ -42,6 +42,6 @@ struct LoginView: View {
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView(viewModel: .init())
+        LoginView(viewModel: .init(isAuthorized: false))
     }
 }

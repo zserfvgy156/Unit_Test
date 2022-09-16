@@ -6,11 +6,13 @@
 //
 
 import XCTest
+import SwiftUI
+import ViewInspector
 @testable import UnitTest
 
 class UnitTestTests: XCTestCase {
 
-    private var viewModel: LoginVerificationViewModel! = .init()
+    private var viewModel: LoginVerificationViewModel! = .init(isAuthorized: false)
     
     
     override func setUpWithError() throws {
@@ -33,17 +35,44 @@ class UnitTestTests: XCTestCase {
         
         
         XCTAssertTrue(viewModel.isLoginDisabled)
-        
+
         /// 測試密碼格式錯誤
         viewModel.email = "zserfvgy@gmail.com"
         viewModel.password = ""
         XCTAssertTrue(viewModel.isLoginDisabled)
-        
+
         /// 測試格式正確
         viewModel.email = "zserfvgy@gmail.com"
         viewModel.password = "1223213123123"
         XCTAssertFalse(viewModel.isLoginDisabled)
     }
+    
+    
+    /// 測試基本 ViewInspector 套件
+    func testTextExample() throws {
+        let expected = "it lives!"
+        let sut = Text(expected)
+        let value = try sut.inspect().text().string()
+        XCTAssertEqual(value, expected)
+    }
+    
+    
+    func test() throws {
+        let subject = LoginView(viewModel: viewModel)
+        try subject.inspect().find(button: "login").tap()
+        
+        
+//        let email = try subject.inspect().vStack().textField(0).input()
+//        let password = try subject.inspect().vStack().secureField(0).input()
+//
+//        XCTAssertEqual(email, "Hello, world!")
+//        XCTAssertEqual(password, "Hello, world!")
+    }
+    
+    
+    
+    
+    
 
 //    func testPerformanceExample() throws {
 //        // This is an example of a performance test case.

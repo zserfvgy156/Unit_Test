@@ -19,8 +19,13 @@ class LoginVerificationViewModel: ObservableObject {
     
     var isLoginDisabled: Bool { isLogin || email.isEmpty || password.isEmpty }
     
-    var isAuthorized: Bool = true
+    var isAuthorized: Bool
     private var isLogin = false
+    
+    
+    init(isAuthorized: Bool) {
+        self.isAuthorized = isAuthorized
+    }
     
     
     /// 登入
