@@ -18,8 +18,8 @@ class LoginVerificationViewModel: ObservableObject {
 
     
     var isLoginDisabled: Bool { isLogin || email.isEmpty || password.isEmpty }
-    
     var isAuthorized: Bool
+    
     private var isLogin = false
     
     
@@ -60,17 +60,6 @@ class LoginVerificationViewModel: ObservableObject {
         // 故意生成錯誤
 //        var a: [String] = []
 //        a[0] = String(a[0].prefix(5))
-        
-        
-//        Task {
-//
-//
-////            let error = NSError(domain: "", code: 404)
-//
-//
-//
-//            isLogin = false
-//        }
     }
 }
 

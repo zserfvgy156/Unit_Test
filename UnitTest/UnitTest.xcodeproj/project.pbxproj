@@ -53,6 +53,7 @@
 		CE12E76F28D2B87F00BAED4F /* String+Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Common.swift"; sourceTree = "<group>"; };
 		CE12E77228D2BB1700BAED4F /* AlertInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertInfo.swift; sourceTree = "<group>"; };
 		CE12E77528D2D4DA00BAED4F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		CEAAAE7928DD677200DAA706 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +105,7 @@
 		CE12E73F28CEC9B300BAED4F /* UnitTest */ = {
 			isa = PBXGroup;
 			children = (
+				CEAAAE7928DD677200DAA706 /* Info.plist */,
 				CE12E74028CEC9B300BAED4F /* UnitTestApp.swift */,
 				CE12E74228CEC9B300BAED4F /* ContentView.swift */,
 				CE12E76A28CEE26E00BAED4F /* LoginVerificationViewModel.swift */,
@@ -471,6 +473,7 @@
 				DEVELOPMENT_TEAM = DWLFDR3U5L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UnitTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -501,6 +504,7 @@
 				DEVELOPMENT_TEAM = DWLFDR3U5L;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = UnitTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

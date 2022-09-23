@@ -13,19 +13,29 @@ import ViewInspector
 class UnitTestTests: XCTestCase {
 
     private var viewModel: LoginVerificationViewModel! = .init(isAuthorized: false)
+    private var sut: URLSession!
+    
     
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        sut = URLSession(configuration: .default)
         
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
     }
 
     override func tearDownWithError() throws {
+        
+        /// 清除
+        sut = nil
+        
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    
+    // 信箱與密碼測試
     func testExample() throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -48,7 +58,7 @@ class UnitTestTests: XCTestCase {
     }
     
     
-    /// 測試基本 ViewInspector 套件
+    // 測試基本 ViewInspector 套件
     func testTextExample() throws {
         let expected = "it lives!"
         let sut = Text(expected)
@@ -56,24 +66,60 @@ class UnitTestTests: XCTestCase {
         XCTAssertEqual(value, expected)
     }
     
+    // 異步測試
+    func testValidApiCallGetsHTTPStatusCode200() throws {
+        
+        // 測試網址 (0-100 隨機吐一)
+        let urlString = "http://www.randomnumberapi.com/api/v1.0/random?min=0&max=100&count=1"
+        let url = URL(string: urlString)!
+        
+        // 成功回傳
+        let promise = expectation(description: "Status code: 200")
+
+        // 開始請求
+        sut.dataTask(with: url) { _, response, error in
+            if let error = error {
+                XCTFail("Error: \(error.localizedDescription)")
+                return
+            } else if let statusCode = (response as? HTTPURLResponse)?.statusCode {
+                if statusCode == 200 {
+                    promise.fulfill()
+                } else {
+                    XCTFail("Status code: \(statusCode)")
+                }
+            }
+        }.resume()
+        
+
+        // 等待期望值，若超出時間表示失敗。
+        wait(for: [promise], timeout: 5)
+    }
     
-    func test() throws {
-        let subject = LoginView(viewModel: viewModel)
-        try subject.inspect().find(button: "login").tap()
+    // 快速失敗 (不經過 timeout)
+    func testApiCallCompletes() throws {
         
+        let urlString = "http://www.randomnumberapi.com/test"  // 無效網址 (404)
+        let url = URL(string: urlString)!
+        let promise = expectation(description: "Completion handler invoked")
+        var statusCode: Int?
+        var responseError: Error?
+
+        // 開始請求
+        sut.dataTask(with: url) { _, response, error in
+            statusCode = (response as? HTTPURLResponse)?.statusCode
+            responseError = error
+            promise.fulfill() // 不論結果，直接成功運行。
+        }.resume()
         
-//        let email = try subject.inspect().vStack().textField(0).input()
-//        let password = try subject.inspect().vStack().secureField(0).input()
-//
-//        XCTAssertEqual(email, "Hello, world!")
-//        XCTAssertEqual(password, "Hello, world!")
+        wait(for: [promise], timeout: 5)
+
+        // 快速顯示錯誤
+        XCTAssertNil(responseError)
+        XCTAssertEqual(statusCode, 200)
     }
     
     
     
-    
-    
-
 //    func testPerformanceExample() throws {
 //        // This is an example of a performance test case.
 //        self.measure {

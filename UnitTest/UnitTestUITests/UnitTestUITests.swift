@@ -29,15 +29,17 @@ class UnitTestUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
         
-        
+        ///信箱輸入測試
         let email = app.textFields["email"]
         email.tap()
         email.typeText("cmecid@gmail.com")
 
+        ///密碼輸入測試
         let pwd = app.secureTextFields["password"]
         pwd.tap()
         pwd.typeText("pwd")
 
+        ///登入按鈕測試
 //        app.switches["rememberMe"].tap()
         app.buttons["login"].doubleTap()
 //        app.buttons["login"].twoFingerTap()
@@ -45,6 +47,8 @@ class UnitTestUITests: XCTestCase {
     
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+
+    
     
 
 //    func testLaunchPerformance() throws {

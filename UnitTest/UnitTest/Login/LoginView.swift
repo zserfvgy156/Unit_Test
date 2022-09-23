@@ -18,14 +18,18 @@ struct LoginView: View {
         VStack {
             TextField("email", text: $viewModel.email)
                 .padding()
+                .accessibilityIdentifier("emailTextField")
     
             SecureField("password", text: $viewModel.password)
                 .padding()
                 .onSubmit(viewModel.login)
+                .accessibilityIdentifier("passwordTextField")
+            
                
             Button("login", action: viewModel.login)
                 .padding(EdgeInsets(top: 100, leading: 0, bottom: 0, trailing: 0))
                 .disabled(viewModel.isLoginDisabled)
+                .accessibilityIdentifier("loginButton")
             
             
             if let errorText = viewModel.errorText {
