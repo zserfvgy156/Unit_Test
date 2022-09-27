@@ -23,6 +23,28 @@ class UnitTestUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+//    ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+//    相關判斷式
+//    ================================
+//    //判斷是否為True
+//    XCTAssert()
+//    //判斷是否為false
+//    XCTAssertFalse
+//    //判斷是否相同
+//    XCTAssertEqual()
+//    //判斷是否不相同
+//    XCTAssertNotEqual
+//    //判浮點數是否相等
+//    XCTAssertEqualWithAccuracy()
+//    //判斷是否為空
+//    XCTAssertNil()
+//    //判斷是否不為空
+//    XCTAssertNotNil()
+//    //無條件失敗
+//    XCTFail()
+    
+    
+    
     func testExample() throws {
         // UI tests must launch the application that they test.
         
@@ -35,10 +57,20 @@ class UnitTestUITests: XCTestCase {
         email.typeText("cmecid@gmail.com")
 
         ///密碼輸入測試
-        let pwd = app.secureTextFields["password"]
-        pwd.tap()
-        pwd.typeText("pwd")
+        ///隨機生成0-8長度的組合密碼
+        let passwordString = randomString(length: Int.random(in: 0...8))
+        let passwordTextFields = app.secureTextFields["password"]
+        passwordTextFields.tap()
+        passwordTextFields.typeText(passwordString)
 
+        /// 判斷登入按鈕是否存在
+        let loginButtonIsExists = app.buttons["login"].exists
+        XCTAssert(loginButtonIsExists)
+        
+        /// 判斷登入按鈕是否可以點擊
+        let loginButtonIsHittable = app.buttons["login"].exists
+        XCTAssert(loginButtonIsHittable)
+                
         ///登入按鈕測試
 //        app.switches["rememberMe"].tap()
         app.buttons["login"].doubleTap()
@@ -47,9 +79,13 @@ class UnitTestUITests: XCTestCase {
     
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
+    
+    ///  隨機生成字串
+    private func randomString(length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return String((0..<length).map{ _ in letters.randomElement()! })
+    }
 
-    
-    
 
 //    func testLaunchPerformance() throws {
 //        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
